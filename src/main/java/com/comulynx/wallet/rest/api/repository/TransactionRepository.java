@@ -23,8 +23,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 	// TODO : Change below Query to use Named Parameters instead of indexed
 	// parameters
 	// TODO : Change below function to return Optional<List<Transaction>>
-	@Query("SELECT t FROM Transaction t WHERE t.customerId =:customerid AND  t.accountNo = :accountno")
-	List<Transaction> getMiniStatementUsingCustomerIdAndAccountNo( @Param("customerid")String customer_id, @Param("accountno") String account_no);
+	@Query("SELECT t FROM transactions t WHERE t.customerId =:customerid AND  t.accountNo = :accountno  LIMIT 5")
+	Optional<List<Transaction>> getMiniStatementUsingCustomerIdAndAccountNo( @Param("customerid")String customer_id, @Param("accountno") String account_no);
 	
 	
 	

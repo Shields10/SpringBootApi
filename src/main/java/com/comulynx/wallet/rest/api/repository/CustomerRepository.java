@@ -18,19 +18,19 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 	// TODO : Implement the query and function below to delete a customer using Customer Id
 	@Modifying 
-	@Query("DELETE from Customer WHERE customerId = :customerId")
+	@Query("DELETE from customers WHERE customerId = :customerId")
 	 int deleteCustomerByCustomerId(@Param("customerId")String customer_id);
 	 
 
 	// TODO : Implement the query and function below to update customer firstName using Customer Id
 	 @Modifying
-	 @Query("UPDATE Customer u SET u.firstName = :firstName WHERE u.customerId = :customerId")
+	 @Query("UPDATE customers u SET u.firstName = :firstName WHERE u.customerId = :customerId")
 	 int updateCustomerByCustomerId(@Param("firstName") String firstName, @Param("customerId")String customer_id);
 
 	
 	
 	// TODO : Implement the query and function below and to return all customers whose Email contains  'gmail'
-	 @Query("SELECT m FROM Customer m WHERE m.email LIKE ?1%")
+	 @Query("SELECT m FROM customers m WHERE m.email LIKE ?1%")
 	 List<Customer> findAllCustomersWhoseEmailContainsGmail(String gmail);
 	 
 }
